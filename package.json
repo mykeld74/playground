@@ -26,5 +26,12 @@
 		"vite": "^4.4.2",
 		"vitest": "^0.34.0"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"postcss": "^8.4.31",
+		"postcss-load-config": "^4.0.1",
+		"postcss-nested": "^6.0.1",
+		"postcss-preset-env": "^9.1.4",
+		"svelte-preprocess": "^5.0.4"
+	}
 }

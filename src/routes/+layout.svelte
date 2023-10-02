@@ -1,0 +1,16 @@
+<script>
+	import '$css/reset.css';
+	import '$css/styles.css';
+</script>
+
+<svelte:head>
+	<title>Welcome to my playground</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;600;700;800;900&display=swap"
+		rel="stylesheet"
+	/>
+</svelte:head>
+
+<slot />

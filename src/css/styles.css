@@ -1,0 +1,19 @@
+:root {
+	--backgroundColor: oklch(37.03% 0.047 234.02);
+	--textColor: oklch(100% 0 0);
+	--scrollerWidth: 600px;
+	--innerScrollGap: 1rem;
+}
+
+html,
+body {
+	font-family: 'Gabarito', sans-serif;
+	background: var(--backgroundColor);
+	color: var(--textColor);
+}
+
+@keyframes scroll {
+	to {
+		transform: translate(calc(-50% - calc(var(--innerScrollGap) / 2)));
+	}
+}
