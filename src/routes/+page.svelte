@@ -33,20 +33,24 @@
 	});
 </script>
 
-<div class={isLoaded ? 'mainContainer' : 'mainContainer hidden'}>
-	<div class="scrollerContainer" data-animationSpeed="slow">
-		<ul class="skills innerScroller">
-			<li class="skill">HTML</li>
-			<li class="skill">CSS</li>
-			<li class="skill">JavaScript</li>
-			<li class="skill">Svelte</li>
-			<li class="skill">React</li>
-			<li class="skill">Animation</li>
-			<li class="skill">Front End</li>
-			<li class="skill">SVG</li>
-			<li class="skill">UI/UX</li>
-			<li class="skill">Full Stack</li>
-		</ul>
+<div class="main">
+	<div class="hero"><h1>Here's my Hero block to shrink</h1></div>
+
+	<div class={isLoaded ? 'mainContainer' : 'mainContainer hidden'}>
+		<div class="scrollerContainer" data-animationSpeed="slow">
+			<ul class="skills innerScroller">
+				<li class="skill">HTML</li>
+				<li class="skill">CSS</li>
+				<li class="skill">JavaScript</li>
+				<li class="skill">Svelte</li>
+				<li class="skill">React</li>
+				<li class="skill">Animation</li>
+				<li class="skill">Front End</li>
+				<li class="skill">SVG</li>
+				<li class="skill">UI/UX</li>
+				<li class="skill">Full Stack</li>
+			</ul>
+		</div>
 	</div>
 </div>
 
@@ -97,6 +101,20 @@
 		--animationDuration: 60s;
 	}
 
+	@keyframes sticky-parallax-header-move-and-size {
+		from {
+			background-position: 50% 0;
+			height: 100vh;
+			font-size: calc(4vw + 1em);
+		}
+		to {
+			background-position: 50% 100%;
+			background-color: #024069;
+			height: 10vh;
+			font-size: 2em;
+		}
+	}
+
 	.skill {
 		font-size: 1.5rem;
 		width: max-content;
@@ -105,5 +123,35 @@
 		padding: 0.5rem 1.25rem;
 		border-radius: 10px;
 		box-shadow: 3px 3px 6px oklch(20% 0 0);
+	}
+
+	@supports (animation-range: 0vh 90vh) {
+		.main {
+			padding-top: 100vh;
+		}
+		.hero {
+			position: fixed;
+			top: 0;
+			animation: sticky-parallax-header-move-and-size linear forwards;
+			animation-timeline: scroll();
+			animation-range: 0vh 90vh;
+		}
+	}
+	.hero {
+		color: #fff;
+		height: 100vh;
+		width: 100%;
+		background: url('$img/background.jpg') center center / cover no-repeat;
+		background-blend-mode: soft-light;
+		display: grid;
+		place-items: center;
+		text-align: center;
+		font-size: calc(4vw + 1em);
+		h1 {
+			font-size: 1em;
+			text-shadow: 2px 2px 6px #000;
+			margin: 0;
+			line-height: 1;
+		}
 	}
 </style>
