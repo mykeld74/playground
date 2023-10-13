@@ -141,7 +141,8 @@
 		color: #fff;
 		height: 100vh;
 		width: 100%;
-		background: url('$img/background.jpg') center center / cover no-repeat;
+		background: url('https://res.cloudinary.com/bigbeardeddev/image/upload/f_auto,q_auto/v1697202081/bigbeardeddev/background')
+			center center / cover no-repeat;
 		background-blend-mode: soft-light;
 		display: grid;
 		place-items: center;
