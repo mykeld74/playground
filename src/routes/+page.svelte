@@ -34,7 +34,12 @@
 </script>
 
 <div class="main">
-	<div class="hero"><h1>Here's my Hero block to shrink</h1></div>
+	<div class="hero">
+		<div class="heroText">
+			<h1 class="headline">Welcome to the Big Bearded Dev Playground</h1>
+			<h3 class="subhead">Just a place for me to try some stuff</h3>
+		</div>
+	</div>
 
 	<div class={isLoaded ? 'mainContainer' : 'mainContainer hidden'}>
 		<div class="scrollerContainer" data-animationSpeed="slow">
@@ -147,12 +152,25 @@
 		display: grid;
 		place-items: center;
 		text-align: center;
-		font-size: calc(4vw + 1em);
-		h1 {
-			font-size: 1em;
-			text-shadow: 2px 2px 6px #000;
-			margin: 0;
-			line-height: 1;
-		}
+		/* font-size: calc(3vw + 0.75em); */
+	}
+	.headline {
+		font-size: 0.95em;
+		text-shadow: 2px 2px 6px #000;
+		margin: 0 0 0.5em 0;
+		line-height: 1;
+	}
+	.subhead {
+		font-size: 0.75em;
+		text-shadow: 2px 2px 6px #000;
+		margin: 0;
+		line-height: 1;
+	}
+	.heroText {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		width: calc(100% - 40px);
 	}
 </style>
