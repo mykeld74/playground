@@ -41,6 +41,10 @@
 		</div>
 	</div>
 
+	<div class="textWithBg">
+		<h1 class="hasBgImg">THIS IS MY TEST</h1>
+	</div>
+
 	<div class={isLoaded ? 'mainContainer' : 'mainContainer hidden'}>
 		<div class="scrollerContainer" data-animationSpeed="slow">
 			<ul class="skills innerScroller">
@@ -172,5 +176,19 @@
 		align-items: center;
 		justify-content: center;
 		width: calc(100% - 40px);
+	}
+
+	.textWithBg {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-height: 500px;
+	}
+	.hasBgImg {
+		font-size: 100px;
+		background: url(../images/textBg.JPG) center 100% / cover no-repeat;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
 	}
 </style>
