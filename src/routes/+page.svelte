@@ -1,5 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
+	import * as Pic from '$img';
 
 	/**
 	 * @type {any[] | NodeListOf<Element>}
@@ -40,10 +41,34 @@
 			<h3 class="subhead">Just a place for me to try some stuff</h3>
 		</div>
 	</div>
-
-	<div class="textWithBg">
-		<h1 class="hasBgImg">THIS IS MY TEST</h1>
-	</div>
+	<section class="coverFlow">
+		<ul class="cards">
+			<li><img src={Pic.Num1} alt="1" /></li>
+			<li><img src={Pic.Num2} alt="2" /></li>
+			<li><img src={Pic.Num3} alt="3" /></li>
+			<li><img src={Pic.Num4} alt="4" /></li>
+			<li><img src={Pic.Num5} alt="5" /></li>
+			<li><img src={Pic.Num6} alt="6" /></li>
+			<li><img src={Pic.Num7} alt="7" /></li>
+			<li><img src={Pic.Num8} alt="8" /></li>
+			<li><img src={Pic.Num9} alt="9" /></li>
+			<li><img src={Pic.Num10} alt="10" /></li>
+			<li><img src={Pic.Num11} alt="11" /></li>
+			<li><img src={Pic.Num12} alt="12" /></li>
+			<li><img src={Pic.Num13} alt="13" /></li>
+			<li><img src={Pic.Num14} alt="14" /></li>
+			<li><img src={Pic.Num15} alt="15" /></li>
+			<li><img src={Pic.Num16} alt="16" /></li>
+			<li><img src={Pic.Num17} alt="17" /></li>
+			<li><img src={Pic.Num18} alt="18" /></li>
+			<li><img src={Pic.Num19} alt="19" /></li>
+			<li><img src={Pic.Num20} alt="20" /></li>
+			<li><img src={Pic.Num21} alt="21" /></li>
+			<li><img src={Pic.Num22} alt="22" /></li>
+			<li><img src={Pic.Num23} alt="23" /></li>
+			<li><img src={Pic.Num24} alt="24" /></li>
+		</ul>
+	</section>
 
 	<div class={isLoaded ? 'mainContainer' : 'mainContainer hidden'}>
 		<div class="scrollerContainer" data-animationSpeed="slow">
@@ -124,6 +149,35 @@
 		}
 	}
 
+	@keyframes adjust-z-index {
+		0% {
+			z-index: 1;
+		}
+		50% {
+			z-index: 100;
+		}
+		100% {
+			z-index: 1;
+		}
+	}
+	@keyframes rotate-cover {
+		0% {
+			transform: translateX(-100%) rotateY(-45deg);
+		}
+		35% {
+			transform: translateX(0) rotateY(-45deg);
+		}
+		50% {
+			transform: rotateY(0deg) translateZ(1em) scale(2);
+		}
+		65% {
+			transform: translateX(0) rotateY(45deg);
+		}
+		100% {
+			transform: translateX(100%) rotateY(45deg);
+		}
+	}
+
 	.skill {
 		font-size: 1.5rem;
 		width: max-content;
@@ -190,5 +244,49 @@
 		background: url(../images/textBg.JPG) center 100% / cover no-repeat;
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
+		text-transform: uppercase;
+	}
+
+	.cards {
+		--cover-size: 200px;
+		list-style: none;
+		white-space: nowrap;
+		max-width: calc(var(--cover-size) * 6);
+		overflow-x: scroll;
+		margin: 300px auto 200px;
+		padding: 150px;
+		position: relative;
+		scroll-snap-type: x mandatory;
+		background: rgba(0 0 0 / 0.5);
+		li {
+			display: inline-block;
+			width: var(--cover-size);
+			aspect-ratio: 1;
+			view-timeline-name: --li-in-and-out-of-view;
+			view-timeline-axis: inline;
+			animation: linear adjust-z-index both;
+			animation-timeline: --li-in-and-out-of-view;
+			perspective: 40em;
+			position: relative;
+			z-index: 1;
+
+			padding-bottom: calc(var(--cover-size) / 1.5);
+			will-change: z-index;
+			user-select: none;
+			scroll-snap-align: center;
+			&:first-of-type {
+				margin-left: calc(50% - (var(--cover-size) / 2));
+			}
+			> img {
+				width: var(--cover-size);
+				height: var(--cover-size);
+				-webkit-box-reflect: below 0.3em linear-gradient(rgb(0 0 0 / 0), rgb(0 0 0 / 0.15));
+				animation: linear rotate-cover both;
+				animation-timeline: --li-in-and-out-of-view;
+				transform: translateX(-100%) rotateY(-45deg);
+				will-change: transform;
+				border-radius: 10px;
+			}
+		}
 	}
 </style>
