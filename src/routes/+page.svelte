@@ -67,6 +67,8 @@
 			<li><img src={Pic.Num22} alt="22" /></li>
 			<li><img src={Pic.Num23} alt="23" /></li>
 			<li><img src={Pic.Num24} alt="24" /></li>
+			<li />
+			<li />
 		</ul>
 	</section>
 
@@ -258,6 +260,9 @@
 		position: relative;
 		scroll-snap-type: x mandatory;
 		background: rgba(0 0 0 / 0.5);
+		&::-webkit-scrollbar {
+			display: none;
+		}
 		li {
 			display: inline-block;
 			width: var(--cover-size);
