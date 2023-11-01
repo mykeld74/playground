@@ -212,6 +212,7 @@
 		display: grid;
 		place-items: center;
 		text-align: center;
+		z-index: 500;
 		/* font-size: calc(3vw + 0.75em); */
 	}
 	.headline {
@@ -248,18 +249,26 @@
 		-webkit-text-fill-color: transparent;
 		text-transform: uppercase;
 	}
+	.coverFlow {
+		width: 100%;
+
+		display: flex;
+		justify-content: center;
+	}
 
 	.cards {
-		--cover-size: 200px;
+		--cover-size: clamp(100px, 15vw, 200px);
 		list-style: none;
 		white-space: nowrap;
-		max-width: calc(var(--cover-size) * 6);
+		max-width: calc(var(--cover-size) * 7);
 		overflow-x: scroll;
 		margin: 300px auto 200px;
 		padding: 150px;
 		position: relative;
 		scroll-snap-type: x mandatory;
-		background: rgba(0 0 0 / 0.5);
+		background: #000;
+		border: 2px solid #222;
+		box-shadow: 10px 10px 20px #000;
 		&::-webkit-scrollbar {
 			display: none;
 		}
