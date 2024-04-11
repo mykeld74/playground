@@ -90,7 +90,6 @@
 		gap: 20px;
 		width: calc(100% - 120px);
 		max-width: 600px;
-
 		overflow: clip;
 	}
 	.cardWrapper {

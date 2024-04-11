@@ -22,6 +22,8 @@ import Num21 from './cover/safari-21.jpg';
 import Num22 from './cover/safari-22.jpg';
 import Num23 from './cover/safari-23.jpg';
 import Num24 from './cover/safari-24.jpg';
+import RBA from './ads/RBA.png';
+import SMHF from './ads/SellMyHouseFast.webp';
 
 export {
 	Num1,
@@ -47,5 +49,7 @@ export {
 	Num21,
 	Num22,
 	Num23,
-	Num24
+	Num24,
+	RBA,
+	SMHF
 };
