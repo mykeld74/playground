@@ -46,16 +46,16 @@
 						<div class="adLogo">
 							<img src={ad.LogoUrl} alt="Headline" />
 						</div>
-						<div class="adText">
-							<div class="adHeadline">{ad.Headline}</div>
-							<div class="adBullets">
-								<ul>
-									{#each ad.Bullets as bullet}
-										<li>{bullet}</li>
-									{/each}
-								</ul>
-							</div>
+
+						<div class="adHeadline">{ad.Headline}</div>
+						<div class="adBullets">
+							<ul>
+								{#each ad.Bullets as bullet}
+									<li>{bullet}</li>
+								{/each}
+							</ul>
 						</div>
+
 						<div class="ctaContent">
 							<div class="ctaButton">
 								<a>{ad.CTAtext}</a>
@@ -140,7 +140,8 @@
 	.adContent {
 		display: grid;
 		grid-template-columns: 180px 1fr 200px;
-		grid-template-areas: 'logo content cta';
+		grid-template-rows: auto 1fr;
+		grid-template-areas: 'title title title' 'logo content cta';
 		gap: 20px;
 	}
 	.adLogo,
@@ -155,11 +156,14 @@
 		grid-area: content;
 		font-size: 1.5em;
 		font-weight: 500;
+		grid-area: title;
+		text-align: center;
 	}
 	.adBullets {
 		grid-area: content;
 		font-size: 1.1em;
 		line-height: 1.1;
+		grid-area: content;
 		ul {
 			padding-left: 20px;
 		}

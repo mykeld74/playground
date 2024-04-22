@@ -26,7 +26,7 @@
 <div class="wrapper">
 	<div class="container">
 		{#each cards as card}
-			<input type="radio" name="slide" id={`c${card.id}`} checked />
+			<input type="radio" name="slide" id={`c${card.id}`} checked={card.id === 1 ? true : false} />
 			<label for={`c${card.id}`} class={`card card${card.id}`}>
 				<div class="row">
 					<div class="icon">{card.id}</div>
@@ -53,7 +53,7 @@
 		height: 400px;
 		display: flex;
 		flex-wrap: no-wrap;
-		justify-content: start;
+		justify-content: flex-start;
 	}
 	.card {
 		width: 80px;
