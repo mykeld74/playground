@@ -143,6 +143,11 @@
 		grid-template-rows: auto 1fr;
 		grid-template-areas: 'title title title' 'logo content cta';
 		gap: 20px;
+		@media (max-width: 700px) {
+			grid-template-columns: 1fr;
+			grid-template-rows: auto auto 1fr;
+			grid-template-areas: 'title' 'logo' 'content' 'cta';
+		}
 	}
 	.promoLogo,
 	.ctaContent {
@@ -170,6 +175,9 @@
 		li {
 			margin-bottom: 10px;
 		}
+	}
+	.promoLogo {
+		max-width: 180px;
 	}
 	.promoLogo img {
 		width: 100%;
