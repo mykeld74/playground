@@ -146,7 +146,7 @@
 		@media (max-width: 700px) {
 			grid-template-columns: 1fr;
 			grid-template-rows: auto auto 1fr;
-			grid-template-areas: 'title' 'logo' 'content' 'cta';
+			grid-template-areas: 'logo' 'title' 'content' 'cta';
 		}
 	}
 	.promoLogo,
