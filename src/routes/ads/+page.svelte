@@ -38,18 +38,35 @@
 	<title>SuCo Ads</title>
 </svelte:head>
 
-<div class="promoContainer">
+<div class="gpContainer">
 	<div class="zoneWrapper" id="ZoneId" data-zoneid="ZoneId">
 		{#each ads as ad}
-			<div class="template" id="TemplateId" data-templateid="TemplateId">
-				<div class="AdId" data-adid="AdId">
-					<div class="promoContent">
-						<div class="promoLogo">
+			<div class="gpTemplate" id="TemplateId" data-templateid="TemplateId">
+				<div class="GpId" data-gpid="AdId">
+					<div class="gpContent">
+						<div class="gpLogo">
 							<img src={ad.LogoUrl} alt="Headline" />
 						</div>
 
-						<div class="promoHeadline">{ad.Headline}</div>
-						<div class="promoBullets">
+						<div class="gpHeadline">{ad.Headline}</div>
+						<input type="checkbox" id={`gpCheckbox${ad.AdId}`} class="gpCheckbox" />
+						<label for={`gpCheckbox${ad.AdId}`} class="gpCheckboxLabel">
+							<svg viewBox="0 0 668 315" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path
+									d="M30.9375 30.1279L334.276 284.659"
+									stroke="white"
+									stroke-width="60"
+									stroke-linecap="round"
+								/>
+								<path
+									d="M334 284.531L637.338 30.0001"
+									stroke="white"
+									stroke-width="60"
+									stroke-linecap="round"
+								/>
+							</svg>
+						</label>
+						<div class="gpBullets">
 							<ul>
 								{#each ad.Bullets as bullet}
 									<li>{bullet}</li>
@@ -73,16 +90,16 @@
    <div class="ad" id="TemplateId" data-templateid="{{TemplateId}}">
       {{#Ads}}
       <div class="AdId" data-adid="{{AdId}}">
-         <div class='promoContent'>
+         <div class='gpContent'>
             <a href="{{clickUrl}}" target="_blank" class=""></a>
-            <div class="promoLogo">
+            <div class="gpLogo">
                <img src="{{LogoUrl}}" alt="{{Headline}}" />
             </div>
             <div class="adText">
-               <div class="promoHeadline">
+               <div class="gpHeadline">
                   {{Headline}}
                </div>
-               <div class="promoBullets">
+               <div class="gpBullets">
                   <ul>
                      {{#Bullets}}
                      <li>{{.}}</li>
@@ -113,7 +130,7 @@
 			transform: scale(1);
 		}
 	}
-	.promoContainer {
+	.gpContainer {
 		width: 100%;
 		max-width: 1000px;
 		margin: 150px auto 0;
@@ -131,14 +148,14 @@
 		justify-content: center;
 		align-items: center;
 	}
-	.template {
+	.gpTemplate {
 		width: 100%;
 		max-width: 850px;
 		box-shadow: 2px 2px 6px #888;
 		border-radius: 5px;
 		padding: 20px;
 	}
-	.promoContent {
+	.gpContent {
 		display: grid;
 		grid-template-columns: 180px 1fr 200px;
 		grid-template-rows: auto 1fr;
@@ -147,10 +164,11 @@
 		@media (max-width: 700px) {
 			grid-template-columns: 1fr;
 			grid-template-rows: auto auto 1fr;
-			grid-template-areas: 'logo' 'title' 'content' 'cta';
+			grid-template-areas: 'logo' 'title' 'arrow' 'content' 'cta';
+			gap: 10px;
 		}
 	}
-	.promoLogo,
+	.gpLogo,
 	.ctaContent {
 		width: 90%;
 		margin: 0 auto;
@@ -158,18 +176,30 @@
 		flex-direction: center;
 		align-items: center;
 	}
-	.promoHeadline {
+	.gpHeadline {
 		grid-area: content;
 		font-size: 1.5em;
 		font-weight: 500;
 		grid-area: title;
 		text-align: center;
 	}
-	.promoBullets {
+	.gpBullets {
 		grid-area: content;
 		font-size: 1.1em;
 		line-height: 1.1;
 		grid-area: content;
+		@media (max-width: 700px) {
+			height: auto;
+			max-height: 0px;
+			overflow: clip;
+			transition: max-height 300ms ease;
+			li {
+				margin-bottom: 0;
+			}
+			ul {
+				margin: 0;
+			}
+		}
 		ul {
 			padding-left: 20px;
 		}
@@ -177,13 +207,46 @@
 			margin-bottom: 10px;
 		}
 	}
-	.promoLogo {
+	.gpCheckbox {
+		display: none;
+	}
+	input:checked + label {
+		transition: transform 300ms ease;
+		transform: rotate(180deg);
+	}
+	input:checked + label + .gpBullets {
+		@media (min-height: 700px) {
+			/* height: auto; */
+			max-height: 600px;
+			transition: max-height 300ms ease;
+		}
+	}
+	.gpLogo {
 		max-width: 180px;
 	}
-	.promoLogo img {
+	.gpLogo img {
 		width: 100%;
 		height: 100%;
 		object-fit: contain;
+	}
+	.gpCheckboxLabel {
+		display: none;
+		@media (max-width: 700px) {
+			width: 30px;
+			height: 30px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			cursor: pointer;
+			background: #c4c4c4;
+			border-radius: 250px;
+			grid-area: arrow;
+			margin: 0 auto;
+			transition: transform 300ms ease;
+		}
+	}
+	.gpCheckboxLabel svg {
+		width: 60%;
 	}
 	.ctaContent {
 		grid-area: cta;
