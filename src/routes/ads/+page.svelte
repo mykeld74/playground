@@ -37,18 +37,18 @@
 	/>
 </svelte:head>
 
-<div class="adsContainer">
+<div class="promoContainer">
 	<div class="zoneWrapper" id="ZoneId" data-zoneid="ZoneId">
 		{#each ads as ad}
-			<div class="ad" id="TemplateId" data-templateid="TemplateId">
+			<div class="template" id="TemplateId" data-templateid="TemplateId">
 				<div class="AdId" data-adid="AdId">
-					<div class="adContent">
-						<div class="adLogo">
+					<div class="promoContent">
+						<div class="promoLogo">
 							<img src={ad.LogoUrl} alt="Headline" />
 						</div>
 
-						<div class="adHeadline">{ad.Headline}</div>
-						<div class="adBullets">
+						<div class="promoHeadline">{ad.Headline}</div>
+						<div class="promoBullets">
 							<ul>
 								{#each ad.Bullets as bullet}
 									<li>{bullet}</li>
@@ -72,16 +72,16 @@
    <div class="ad" id="TemplateId" data-templateid="{{TemplateId}}">
       {{#Ads}}
       <div class="AdId" data-adid="{{AdId}}">
-         <div class='adContent'>
+         <div class='promoContent'>
             <a href="{{clickUrl}}" target="_blank" class=""></a>
-            <div class="adLogo">
+            <div class="promoLogo">
                <img src="{{LogoUrl}}" alt="{{Headline}}" />
             </div>
             <div class="adText">
-               <div class="adHeadline">
+               <div class="promoHeadline">
                   {{Headline}}
                </div>
-               <div class="adBullets">
+               <div class="promoBullets">
                   <ul>
                      {{#Bullets}}
                      <li>{{.}}</li>
@@ -112,7 +112,7 @@
 			transform: scale(1);
 		}
 	}
-	.adsContainer {
+	.promoContainer {
 		width: 100%;
 		max-width: 1000px;
 		margin: 150px auto 0;
@@ -130,21 +130,21 @@
 		justify-content: center;
 		align-items: center;
 	}
-	.ad {
+	.template {
 		width: 100%;
 		max-width: 850px;
 		box-shadow: 2px 2px 6px #888;
 		border-radius: 5px;
 		padding: 20px;
 	}
-	.adContent {
+	.promoContent {
 		display: grid;
 		grid-template-columns: 180px 1fr 200px;
 		grid-template-rows: auto 1fr;
 		grid-template-areas: 'title title title' 'logo content cta';
 		gap: 20px;
 	}
-	.adLogo,
+	.promoLogo,
 	.ctaContent {
 		width: 90%;
 		margin: 0 auto;
@@ -152,14 +152,14 @@
 		flex-direction: center;
 		align-items: center;
 	}
-	.adHeadline {
+	.promoHeadline {
 		grid-area: content;
 		font-size: 1.5em;
 		font-weight: 500;
 		grid-area: title;
 		text-align: center;
 	}
-	.adBullets {
+	.promoBullets {
 		grid-area: content;
 		font-size: 1.1em;
 		line-height: 1.1;
@@ -171,7 +171,7 @@
 			margin-bottom: 10px;
 		}
 	}
-	.adLogo img {
+	.promoLogo img {
 		width: 100%;
 		height: 100%;
 		object-fit: contain;
