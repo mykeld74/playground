@@ -25,7 +25,7 @@ import Num24 from './cover/safari-24.jpg';
 import RBA from './ads/RBA.png';
 import SMHF from './ads/SellMyHouseFast.webp';
 
-import HealthAnimation from './lottie/Health_Anim_6sec_Optimized.json';
+import HealthAnimation from './lottie/Health_Anim_6sec_optimized.json';
 
 export {
 	Num1,
