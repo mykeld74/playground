@@ -1,3 +1,6 @@
+@import 'open-props/normalize';
+@import 'open-props/style';
+
 :root {
 	--backgroundColor: oklch(37.03% 0.047 234.02);
 	--textColor: oklch(100% 0 0);
@@ -8,7 +11,7 @@
 html,
 body {
 	font-family: 'Gabarito', sans-serif;
-	background: var(--backgroundColor);
+	background-image: var(--gradient-23);
 	color: var(--textColor);
 }
 

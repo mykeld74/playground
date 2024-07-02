@@ -11,7 +11,9 @@
 	const navLinks = [
 		{ href: '/', title: 'Home' },
 		{ href: '/transitions', title: 'Transitions' },
-		{ href: '/buttons', title: 'Buttons' }
+		{ href: '/buttons', title: 'Buttons' },
+		{ href: '/cards', title: 'Cards' },
+		{ href: '/animations', title: 'Animations' }
 	];
 </script>
 
@@ -33,13 +35,13 @@
 		<div
 			class="navContainer"
 			on:click={toggleNav}
-			transition:fly={{ duration: 300, x: -300, y: -200 }}
+			transition:fly={{ duration: 200, x: -300, y: -200 }}
 		>
 			<nav>
-				<ul in:fade={{ delay: 300 }}>
+				<ul in:fade={{ delay: 200 }}>
 					{#each navLinks as link, i}
 						{#key link.href}
-							<li in:fade|global={{ delay: 250 * i }}>
+							<li in:fade|global={{ delay: 150 * i }}>
 								<a href={link.href}>{link.title}</a>
 							</li>
 						{/key}

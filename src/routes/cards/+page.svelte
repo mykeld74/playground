@@ -41,12 +41,26 @@
 </div>
 
 <style>
+	@keyframes gradient {
+		0% {
+			background-position: 0% 0%;
+		}
+		50% {
+			background-position: 100% 50%;
+		}
+		100% {
+			background-position: 0% 100%;
+		}
+	}
+
 	.wrapper {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		height: 100vh;
-		background: #eee;
+		background-image: var(--gradient-7);
+		background-size: cover;
+		/* animation: gradient 5s ease infinite; */
 	}
 
 	.container {
@@ -57,14 +71,14 @@
 	}
 	.card {
 		width: 80px;
-		border-radius: 2rem;
+		border-radius: var(--radius-4);
 		background-size: cover;
 		cursor: pointer;
 		margin: 0 10px;
 		display: flex;
 		align-items: flex-end;
 		transition: 0.6s ease-in-out;
-		box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.8);
+		box-shadow: var(--shadow-3);
 		overflow: clip;
 		> .row {
 			color: #fff;
@@ -76,7 +90,7 @@
 			> .icon {
 				background: #223;
 				width: 50px;
-				border-radius: 100px;
+				border-radius: var(--radius-round);
 				display: flex;
 				justify-content: center;
 				align-items: center;
@@ -93,7 +107,7 @@
 				width: 520px;
 				opacity: 0;
 				transform: translateX(80px);
-				transition: all 0.3s ease-in-out;
+				transition: all 0.3s var(--ease-out-1);
 				transition-delay: 0.3s;
 			}
 		}
@@ -113,6 +127,8 @@
 	}
 	input:checked + label {
 		width: 600px;
+		box-shadow: var(--shadow-5);
+		transition: 0.4s var(--ease-elastic-in-out-1);
 		> .row {
 			background: rgba(0, 0, 0, 0.6);
 			> .description {
