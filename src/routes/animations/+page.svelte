@@ -3,7 +3,7 @@
 	let isLoaded = false;
 	setTimeout(() => {
 		isLoaded = true;
-	}, 50);
+	}, 250);
 </script>
 
 <svelte:head>
