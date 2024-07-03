@@ -4,13 +4,12 @@
 	let isLoaded = false;
 	setTimeout(() => {
 		isLoaded = true;
-	}, 250);
+	}, 50);
 </script>
 
-<svelte:head>
-	<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-</svelte:head>
-
+<header>
+	<h1>Animations</h1>
+</header>
 <div class="container">
 	{#if isLoaded}
 		<LottiePlayer src={HealthAnimation} loop autoplay width={500} />
@@ -21,6 +20,19 @@
 	.container {
 		display: grid;
 		place-items: center;
-		height: 100vh;
+		height: 80vh;
+	}
+
+	header {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 80px;
+		background-color: #f5f5f5;
+		color: #333;
+		font-size: 24px;
+		h1 {
+			margin: 0;
+		}
 	}
 </style>
