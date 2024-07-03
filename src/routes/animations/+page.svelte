@@ -7,7 +7,7 @@
 </script>
 
 <svelte:head>
-	<script src="/node_modules/@lottiefiles/lottie-player/dist/lottie-player.js"></script>
+	<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </svelte:head>
 
 <div class="container">
