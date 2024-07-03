@@ -1,5 +1,6 @@
 <script>
 	import { HealthAnimation } from '$img';
+	import { LottiePlayer } from '@lottiefiles/svelte-lottie-player';
 	let isLoaded = false;
 	setTimeout(() => {
 		isLoaded = true;
@@ -12,7 +13,7 @@
 
 <div class="container">
 	{#if isLoaded}
-		<lottie-player src={HealthAnimation} loop autoplay class="lottie" />
+		<LottiePlayer src={HealthAnimation} loop autoplay width={500} />
 	{/if}
 </div>
 
@@ -21,9 +22,5 @@
 		display: grid;
 		place-items: center;
 		height: 100vh;
-	}
-	.lottie {
-		width: 300px;
-		height: 300px;
 	}
 </style>
