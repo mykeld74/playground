@@ -12,8 +12,7 @@
 		{ href: '/', title: 'Home' },
 		{ href: '/transitions', title: 'Transitions' },
 		{ href: '/buttons', title: 'Buttons' },
-		{ href: '/cards', title: 'Cards' },
-		{ href: '/animations', title: 'Animations' }
+		{ href: '/cards', title: 'Cards' }
 	];
 </script>
 

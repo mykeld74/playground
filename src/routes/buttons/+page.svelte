@@ -25,6 +25,10 @@
 		<p>Variation 6</p>
 		<button class="button button6"><p>See My Results!</p></button>
 	</div>
+	<div class="buttonContainer">
+		<p>Variation 7</p>
+		<button class="button button7"><p>See My Results!</p></button>
+	</div>
 </div>
 
 <style>
@@ -39,6 +43,12 @@
 
 		100% {
 			--conic-rotation: 0deg;
+		}
+	}
+
+	@keyframes rotateBorder {
+		100% {
+			--conic-rotation: 360deg;
 		}
 	}
 	@keyframes slideBackAndForth {
@@ -339,8 +349,56 @@
 		}
 	}
 	.button6 {
-		background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-		background-size: 400% 400%;
-		animation: gradient 8s ease infinite;
+		position: relative;
+		background: transparent;
+		z-index: 50;
+		overflow: hidden;
+		&:before {
+			content: '';
+			inset: 0;
+			z-index: -1;
+			display: block;
+			position: absolute;
+			background: linear-gradient(-30deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+			background-size: 400% 400%;
+			animation: gradient 8s ease infinite;
+			filter: blur(3px);
+		}
+	}
+
+	.button7 {
+		position: relative;
+		overflow: hidden;
+		border-radius: 6px;
+		background: transparent;
+		color: #333;
+
+		:before {
+			position: absolute;
+			content: '';
+
+			margin: 0;
+			inset: -4px;
+
+			border-image: conic-gradient(
+					from var(--conic-rotation),
+					oklch(77% 0.5 200) 0%,
+					26%,
+					oklch(77% 0.5 230) 0% 0%,
+					46%,
+					oklch(77% 0.5 260) 0% 0%,
+					60%,
+					oklch(77% 0.5 280) 0% 0%,
+					82%,
+					oklch(77% 0.5 300) 0% 0%
+				)
+				1;
+			border-width: 8px;
+			border-style: solid;
+			animation: 3s rotateBorder linear infinite;
+
+			filter: blur(6px);
+			/* z-index: -1; */
+		}
 	}
 </style>

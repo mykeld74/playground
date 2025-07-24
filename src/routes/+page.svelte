@@ -137,6 +137,15 @@
 		--animationDuration: 60s;
 	}
 
+	@keyframes scroll {
+		from {
+			transform: translateX(0);
+		}
+		to {
+			transform: translateX(calc(-50% - var(--innerScrollGap) / 2));
+		}
+	}
+
 	@keyframes sticky-parallax-header-move-and-size {
 		from {
 			background-position: 50% 0;
