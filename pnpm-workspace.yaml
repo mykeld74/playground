@@ -1,5 +1,6 @@
-onlyBuiltDependencies:
-  - svelte-preprocess
-
 packages:
-  - 'src'
+  - src
+
+onlyBuiltDependencies:
+  - esbuild
+  - svelte-preprocess
