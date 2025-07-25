@@ -1,5 +1,5 @@
 <script>
-	export let src, altTag;
+	let { src, altTag } = $props();
 </script>
 
 <div class="card">

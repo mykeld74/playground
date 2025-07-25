@@ -2,7 +2,14 @@
 	import { fly, fade } from 'svelte/transition';
 	import '$css/reset.css';
 	import '$css/styles.css';
-	$: showNav = false;
+	/**
+	 * @typedef {Object} Props
+	 * @property {import('svelte').Snippet} [children]
+	 */
+
+	/** @type {Props} */
+	let { children } = $props();
+	let showNav = $state(false);
 
 	function toggleNav() {
 		showNav = !showNav;
@@ -12,7 +19,8 @@
 		{ href: '/', title: 'Home' },
 		{ href: '/transitions', title: 'Transitions' },
 		{ href: '/buttons', title: 'Buttons' },
-		{ href: '/cards', title: 'Cards' }
+		{ href: '/cards', title: 'Cards' },
+		{ href: '/scroll', title: 'Scroll' }
 	];
 </script>
 
@@ -27,13 +35,13 @@
 </svelte:head>
 
 <div class="layout">
-	<button class="navToggle" on:click={toggleNav}>Menu</button>
+	<button class="navToggle" onclick={toggleNav}>Menu</button>
 	{#if showNav}
-		<!-- svelte-ignore a11y-no-static-element-interactions -->
-		<!-- svelte-ignore a11y-click-events-have-key-events -->
+		<!-- svelte-ignore a11y_no_static_element_interactions -->
+		<!-- svelte-ignore a11y_click_events_have_key_events -->
 		<div
 			class="navContainer"
-			on:click={toggleNav}
+			onclick={toggleNav}
 			transition:fly={{ duration: 200, x: -300, y: -200 }}
 		>
 			<nav>
@@ -49,7 +57,7 @@
 			</nav>
 		</div>
 	{/if}
-	<slot />
+	{@render children?.()}
 </div>
 
 <style>

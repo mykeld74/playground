@@ -10,13 +10,14 @@
 	 * @type {Element | never[] | null}
 	 */
 
+	/** @type {boolean} */
 	let isLoaded = false;
 
 	function addAnimation() {
 		scrollers.forEach((scroller) => {
 			scroller.setAttribute('data-animated', true);
 			const scrollerInner = document.querySelector('.innerScroller');
-			const scrollerInnerContent = Array.from(scrollerInner?.children);
+			const scrollerInnerContent = Array.from(scrollerInner?.children ?? []);
 
 			scrollerInnerContent.forEach((item) => {
 				const duplicatedItem = item.cloneNode(true);
@@ -67,8 +68,8 @@
 			<li><img src={Pic.Num22} alt="22" /></li>
 			<li><img src={Pic.Num23} alt="23" /></li>
 			<li><img src={Pic.Num24} alt="24" /></li>
-			<li />
-			<li />
+			<li></li>
+			<li></li>
 		</ul>
 	</section>
 

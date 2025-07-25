@@ -4,8 +4,10 @@
 	import { fly } from 'svelte/transition';
 	import { swing } from '$lib/transitions';
 
-	$: transitionIn = 'forward';
-	$: transitionOut = 'reverse';
+	let transitionIn = $state('forward');
+	
+	let transitionOut = $state('reverse');
+	
 
 	const cards = [
 		{ src: Num1, altTag: 'Random Image 1' },
@@ -13,7 +15,7 @@
 		{ src: Num3, altTag: 'Random Image 3' },
 		{ src: Num4, altTag: 'Random Image 4' }
 	];
-	let currentCard = 0;
+	let currentCard = $state(0);
 
 	function nextCard() {
 		transitionIn = 'forward';
@@ -35,7 +37,7 @@
 <div>
 	<div class="header"><h1>Transitions</h1></div>
 	<div class="container">
-		<button class="backButton button" on:click={backCard}>&larr;</button>
+		<button class="backButton button" onclick={backCard}>&larr;</button>
 		<div class="cardContainer">
 			{#each [cards[currentCard]] as card}
 				{#key card}
@@ -49,7 +51,7 @@
 				{/key}
 			{/each}
 		</div>
-		<button class="nextButton button" on:click={nextCard}>&rarr;</button>
+		<button class="nextButton button" onclick={nextCard}>&rarr;</button>
 	</div>
 </div>
 
